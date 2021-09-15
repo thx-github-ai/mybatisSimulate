@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thx.demo.mapper.UserMapper">
+    <insert id="insertUser">
+        insert into user(id, user_name, password)
+        values(?, ?, ?)
+    </insert>
+    <update id="updateById">
+        update user
+        set user_name = ?, password = ?
+        where id = ?
+    </update>
+    <delete id="deleteById">
+        delete
+        from user
+        where id = ?
+    </delete>
+    <!--    配置查询所有 id为方法名 resultType指定封装的实体类型-->
+    <select id="userListAll" resultType="com.thx.demo.bean.User">
+        select * from user
+    </select>
+</mapper>
